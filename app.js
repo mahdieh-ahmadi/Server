@@ -1,7 +1,7 @@
 const express = require('express');
 const server = express();
 
-const serverID = 2000
+const serverID = process.env.PORT || 2000;
 const middleWare = require('./middleWare')
 
 server.use(middleWare.logger)
@@ -13,5 +13,5 @@ server.get('/about' , (req , res) => {
 server.use(express.static(__dirname + '/public'))
 
 server.listen(serverID , () => {
-    console.log('server is begin at locallhost' + serverID)
+    console.log('server is begin at locallhost ' + serverID)
 })
